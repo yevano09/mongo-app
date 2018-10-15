@@ -13,8 +13,9 @@ client.connect(broker_address)
 
 for x in xrange(1,10):
 	rd = random.randrange(0, 101, 2)
-	client.publish("/iot/home/2","{ \"id\": \"test1\", \"temp\": %d }" % rd )
-	print(" Sent the meessage %d \n " % rd )
+	msg = "{ \"id\": \"test1\", \"temp\": %d }" % rd 
+	client.publish("/iot/home/2", msg)
+	print(" Sent the meessage %s \n " % msg )
 	time.sleep(60)
 	pass
 
